@@ -1,5 +1,6 @@
 "use client";
 
+import LiveBadge from "@/components/live-badge";
 import { Button } from "@/components/ui/button";
 import { Skeleton } from "@/components/ui/skeleton";
 import UserAvatar from "@/components/user-avatar";
@@ -39,10 +40,25 @@ const UserItem = ({ username, imageUrl, isLive }: UserItemProps) => {
           )}
         >
           <UserAvatar imageUrl={imageUrl} username={username} isLive={isLive} />
+          {!collapsed && <p className="truncate max-w-40">{username}</p>}
         </div>
+        {!collapsed && isLive && <LiveBadge className="ml-auto" />}
       </Link>
     </Button>
   );
 };
 
 export default UserItem;
+
+export const UserItemSkeleton = () => {
+  return (
+    <li className="flex items-center gap-x-4 px-3 py-2">
+      <Skeleton className="min-h-[32px] min-w-[32px] rounded-full" />
+      <div className="flex-1">
+        <Skeleton className="h-6" />
+      </div>
+    </li>
+  );
+};
+
+
