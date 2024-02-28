@@ -8,6 +8,8 @@ import { ArrowLeftFromLine, ArrowRightFromLine } from "lucide-react";
 
 const Toggle = () => {
   const { collapsed, onExpand, onCollapse } = useSidebar(state => state);
+  console.log("abs");
+  
   const label = collapsed ? "Expand" : "Collapse";
   return (
     <>
