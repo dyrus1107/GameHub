@@ -2,6 +2,7 @@ import { Suspense } from "react";
 import { Container } from "./_components/container";
 import Navbar from "./_components/navbar";
 import SideBar, { SidebarSkeleton } from "./_components/sidebar";
+import { Toaster } from "sonner";
 
 const BrowseLayout = ({ children }: { children: React.ReactNode }) => {
   return (
@@ -10,8 +11,8 @@ const BrowseLayout = ({ children }: { children: React.ReactNode }) => {
       <div className="flex h-full pt-20">
         <Suspense fallback={<SidebarSkeleton />}>
           <SideBar />
-          <Container>{children}</Container>
         </Suspense>
+        <Container>{children}</Container>
       </div>
     </>
   );
