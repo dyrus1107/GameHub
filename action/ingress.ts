@@ -71,6 +71,7 @@ export const createIngress = async (ingressType: IngressInput) => {
   if (!ingress || !ingress.url || !ingress.streamKey) {
     throw new Error("Failed to create ingress");
   }
+  
   await db.stream.update({
     where: { userId: self.id },
     data: {
